@@ -6,9 +6,7 @@
 
 ### How does it work?
 
-* It takes your command ( `yt videoname` )
-* Uses `videoname` as a *keyword* to search in **YouTube**
-* Takes the first link from YouTube
+* It takes your command ( `yt videolink` )
 * Download that video using **youtube_dl** library
 * Converts it into mp3 using **youtube_dl**
 * Sends it to your chatbox
