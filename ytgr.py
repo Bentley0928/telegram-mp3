@@ -51,6 +51,7 @@ def handle(msg):
                 bot.sendAudio(chat_id,audio=open(command + ".mp3",'rb'))
                 print ("Sent!")
                 os.remove(command +'.mp3')
+                link = ""
     #end youtube search
 
 
