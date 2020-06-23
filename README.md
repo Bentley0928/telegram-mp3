@@ -41,6 +41,6 @@ You'll see
 ### Usage
 In your Telegram message box. Text
 
-`yt videoname`
+`yt videolink`
 
 The Bot will find out the video from YouTube, converts it and send it to your Telegram.
