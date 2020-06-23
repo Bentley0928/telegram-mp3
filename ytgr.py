@@ -18,6 +18,8 @@ def handle(msg):
         print ("Command from client : %s  " %command)
 
     #youtube search
+        if command == '/start':
+            bot.sendMessage(chat_id,'輸入yt videolink來下載歌曲(ex: yt your.video.link)')
         if command.startswith('yt'):
             param = command[3:]
             response = urlopen("https://www.youtube.com/results?search_query="+param)
@@ -28,13 +30,16 @@ def handle(msg):
             #link = "https://www.youtube.com"+vid['href']
             global link
             link = param
-            send1 = bot.sendMessage(chat_id,'輸入你想要的檔案名稱')
+            bot.sendMessage(chat_id,'輸入你想要的檔案名稱(輸入exit來取消)')
             #watchid = vid['href']
             #watchid = watchid.replace('/watch?v=','')
             #title = vid['title']
             #print (title)
             print (link)
             #bot.sendMessage(chat_id,title+"\n"+link)
+        elif command == 'exit':
+            link = ''
+            bot.sendMessage(chat_id, "Bye!")
         else:
             options = {
                 'format': 'bestaudio/best',
