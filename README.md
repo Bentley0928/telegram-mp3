@@ -13,8 +13,8 @@
 
 ### Installation
 ```
-git clone https://github.com/thezawad/teletubemp3.git
-cd teletubemp3
+git clone https://github.com/Bentley0928/telegram-mp3.git
+cd telegram-mp3
 pip install telepot
 pip install urllib2
 pip install requests
