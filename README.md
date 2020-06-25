@@ -15,11 +15,10 @@
 ```
 git clone https://github.com/Bentley0928/telegram-mp3.git
 cd telegram-mp3
-pip install telepot
-pip install urllib2
-pip install requests
-pip install bs4
-pip install youtube_dl
+pip3 install telepot
+pip3 install requests
+pip3 install bs4
+pip3 install youtube-dl
 brew install youtube-dl
 brew install ffmpeg
 ```
