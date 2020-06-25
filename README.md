@@ -19,6 +19,7 @@ pip3 install telepot
 pip3 install requests
 pip3 install bs4
 pip3 install youtube-dl
+pip3 install youtube_dl
 brew install youtube-dl
 brew install ffmpeg
 ```
