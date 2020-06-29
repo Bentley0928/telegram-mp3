@@ -61,7 +61,7 @@ def handle(msg):
                     os.remove(command +'.mp3')
                     link = ""
                 else:
-                    bot.sendMessage(chat_id,'檔案大小超過50MB 請用瀏覽器來下載檔案(Chrome請點選右上角選單，按下下載按鈕，謝謝')
+                    bot.sendMessage(chat_id,'檔案大小超過50MB 請用瀏覽器來下載檔案(Chrome請點選播放器右邊的三個點，按下下載按鈕，謝謝')
                     os.system("mv "+command+".mp3 ./mp3/")
 
                     bot.sendMessage(chat_id, "http://mp3.bentley.taipei/"+command+".mp3")
