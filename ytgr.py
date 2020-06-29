@@ -9,6 +9,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+from pathlib import Path
 import youtube_dl
 
 def handle(msg):
@@ -19,7 +20,7 @@ def handle(msg):
 
     #youtube search
         if command == '/start':
-            bot.sendMessage(chat_id,'輸入yt videolink來下載歌曲(ex: yt your.video.link)')
+            bot.sendMessage(chat_id,'輸入yt videolink來下載歌曲,檔案大小無法超過50MB,抱歉(ex: yt your.video.link)')
         if command.startswith('yt'):
             param = command[3:]
             response = urlopen("https://www.youtube.com/results?search_query="+param)
@@ -53,10 +54,20 @@ def handle(msg):
             with youtube_dl.YoutubeDL(options) as ydl:
                 ydl.download([link])
                 print (command)
-                bot.sendAudio(chat_id,audio=open(command + ".mp3",'rb'))
-                print ("Sent!")
-                os.remove(command +'.mp3')
-                link = ""
+                size = Path(command+'.mp3').stat().st_size
+                if size<50000000:
+                    bot.sendAudio(chat_id,audio=open(command + ".mp3",'rb'))
+                    print ("Sent!")
+                    os.remove(command +'.mp3')
+                    link = ""
+                else:
+                    os.system("mv "+command+".mp3 ./mp3/")
+
+                    bot.sendMessage(chat_id, "http://mp3.bentley.taipei/"+command+".mp3")
+
+                    bot.sendMessage(chat_id, "success")
+                    print ("Sent!")
+
     #end youtube search
 
 
