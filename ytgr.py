@@ -20,7 +20,7 @@ def handle(msg):
 
     #youtube search
         if command == '/start':
-            bot.sendMessage(chat_id,'輸入yt videolink來下載歌曲,檔案大小無法超過50MB,抱歉(ex: yt your.video.link)')
+            bot.sendMessage(chat_id,'輸入yt videolink來下載歌曲(ex: yt your.video.link)')
         if command.startswith('yt'):
             param = command[3:]
             response = urlopen("https://www.youtube.com/results?search_query="+param)
@@ -61,6 +61,7 @@ def handle(msg):
                     os.remove(command +'.mp3')
                     link = ""
                 else:
+                    bot.sendMessage(chat_id,'檔案大小超過50MB 請用瀏覽器來下載檔案(Chrome請點選右上角選單，按下下載按鈕，謝謝')
                     os.system("mv "+command+".mp3 ./mp3/")
 
                     bot.sendMessage(chat_id, "http://mp3.bentley.taipei/"+command+".mp3")
